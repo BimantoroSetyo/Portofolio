@@ -1,0 +1,219 @@
+/* Variabel Warna & Font */
+:root {
+    --dark-navy: #0a192f;
+    --navy: #112240;
+    --light-navy: #233554;
+    --slate: #8892b0;
+    --light-slate: #a8b2d1;
+    --lightest-slate: #ccd6f6;
+    --white: #e6f1ff;
+    --green: #64ffda;
+    --font-sans: 'Poppins', sans-serif;
+}
+
+/* Reset & Gaya Dasar */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--dark-navy);
+    color: var(--slate);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navigasi */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    z-index: 10;
+    transition: top 0.3s;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    color: var(--green);
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border: 2px solid var(--green);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--lightest-slate);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+}
+
+.nav-links span {
+    color: var(--green);
+    margin-right: 0.3rem;
+}
+
+.btn-nav {
+    color: var(--green) !important;
+    border: 1px solid var(--green);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.btn-nav:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+}
+
+/* Konten Utama */
+.content {
+    padding-top: 100px; /* Memberi ruang untuk nav */
+}
+
+section {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: var(--lightest-slate);
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.section-title span {
+    color: var(--green);
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 200px;
+    background-color: var(--light-navy);
+    margin-left: 1.5rem;
+}
+
+/* Hero Section */
+#hero {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-greeting { color: var(--green); font-size: 1rem; margin-bottom: 1rem; }
+.hero-name { font-size: clamp(40px, 8vw, 70px); color: var(--lightest-slate); line-height: 1.1; }
+.hero-tagline { font-size: clamp(40px, 8vw, 70px); color: var(--slate); line-height: 1.1; margin-bottom: 1.5rem; }
+.hero-intro { max-width: 600px; margin-bottom: 2rem; }
+
+.social-links { display: flex; gap: 1.5rem; }
+.social-links a { color: var(--slate); font-size: 1.5rem; transition: color 0.3s, transform 0.3s; }
+.social-links a:hover { color: var(--green); transform: translateY(-3px); }
+
+/* Tentang Saya */
+.about-content { display: grid; grid-template-columns: 3fr 2fr; gap: 3rem; }
+.tech-list { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(140px, 200px)); gap: 0.5rem; }
+.tech-list li::before { content: '▹'; color: var(--green); margin-right: 0.5rem; }
+.about-image { position: relative; }
+.about-image img { width: 100%; border-radius: 8px; filter: grayscale(50%); transition: filter 0.3s; }
+.about-image:hover img { filter: grayscale(0%); }
+
+/* Keahlian */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+.skill-card { background-color: var(--light-navy); padding: 1.5rem; border-radius: 4px; transition: transform 0.3s; }
+.skill-card:hover { transform: translateY(-5px); }
+.skill-card h3 { color: var(--lightest-slate); margin-bottom: 1rem; }
+
+/* Proyek */
+.projects-grid { display: grid; gap: 2rem; }
+.project-card {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+.project-image { grid-column: 1 / 8; grid-row: 1 / -1; position: relative; }
+.project-image img { width: 100%; border-radius: 4px; }
+.project-content { grid-column: 7 / -1; grid-row: 1 / -1; text-align: right; z-index: 2; }
+/* Proyek Ganjil-Genap */
+.project-card:nth-of-type(even) .project-image { grid-column: 6 / -1; }
+.project-card:nth-of-type(even) .project-content { grid-column: 1 / 7; text-align: left; }
+
+.project-type { color: var(--green); font-size: 0.9rem; }
+.project-title a { color: var(--lightest-slate); text-decoration: none; font-size: 1.5rem; }
+.project-description { background-color: var(--navy); padding: 1.5rem; border-radius: 4px; box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7); margin: 1rem 0; }
+.project-tech { list-style: none; display: flex; justify-content: flex-end; gap: 1rem; margin-bottom: 1rem; }
+.project-card:nth-of-type(even) .project-tech { justify-content: flex-start; }
+.project-links { display: flex; justify-content: flex-end; gap: 1rem; }
+.project-card:nth-of-type(even) .project-links { justify-content: flex-start; }
+.project-links a { color: var(--light-slate); font-size: 1.2rem; }
+
+/* Footer / Kontak */
+footer { text-align: center; padding: 100px 0; }
+.section-title-footer span { color: var(--green); }
+footer h3 { font-size: 2.5rem; color: var(--lightest-slate); margin: 1rem 0; }
+footer p { max-width: 500px; margin: 0 auto 2rem auto; }
+.btn {
+    display: inline-block;
+    color: var(--green);
+    background-color: transparent;
+    border: 1px solid var(--green);
+    padding: 1rem 1.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+.btn:hover { background-color: rgba(100, 255, 218, 0.1); }
+.footer-credit { margin-top: 5rem; font-size: 0.8rem; color: var(--slate); }
+
+/* Font Awesome Icons */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* Sederhana, bisa dibuat menu burger dengan JS */
+    .about-content, .project-card { grid-template-columns: 1fr; }
+    .about-image { grid-row: 1; margin-bottom: 2rem; }
+    .project-image, .project-content { grid-column: 1 / -1; }
+    .project-content { text-align: left !important; padding: 2rem 0; }
+    .project-tech, .project-links { justify-content: flex-start !important; }
+    .project-description { background-color: transparent; padding: 0; box-shadow: none; }
+}
